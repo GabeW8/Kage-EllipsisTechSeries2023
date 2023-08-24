@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Shadowing Portal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="app" class="container mt-5">
+    <h1 class="mb-4">Kage</h1>
+    
+    <div class="mb-4">
+      <h2>Job Shadowing Listings</h2>
+      <input type="text" v-model="searchQuery" class="form-control mb-2" placeholder="Search jobs">
+      <ul class="list-group">
+        <li v-for="job in filteredJobs" class="list-group-item">{{ job.title }}</li>
+      </ul>
+    </div>
+    
+    <div>
+      <h2>Register for Job Shadowing</h2>
+      <form @submit.prevent="submitRegistration">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" v-model="registration.name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" v-model="registration.email" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="App.js"></script>
+</body>
+</html>
